@@ -8,7 +8,7 @@ import AboutUs from './Components/Website/AboutUs'
 import ContactUs from './Components/Website/ContactUs'
 import Cart from './Components/Website/Cart'
 import Confirmation from './Components/Website/Confirmation'
-import Product from './Components/Website/Product'
+import Products from './Components/Website/Products'
 import LogIn from './Components/Users/LogIn'
 import SignUp from './Components/Users/SignUp'
 import ForgotPassword from './Components/Users/ForgotPassword'
@@ -17,15 +17,14 @@ import ConfirmPassword from './Components/Users/ConfirmPassword'
 export const ProductsData = createContext();
 
 function App() {
-
-  const { data, loading, error } = useFetch('');
-  const [ Products, setProducts ] = useState(data);
-
+  const url = 'https://dummyjson.com/products';
+  const { data, loading, error } = useFetch(url);
+  
   // Create a loader 
 
   return (
     <BrowserRouter>
-      <ProductsData.Provider value={{ Products }}>
+      <ProductsData.Provider value={data}>
         <Header />
         <Routes>
           <Route index element={<Home />} />
@@ -37,7 +36,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/confirmation" element={<Confirmation />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
         <Footer />
       </ProductsData.Provider>
