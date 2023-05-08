@@ -12,14 +12,11 @@ export default function Cart() {
     const length=myData.length;
      for(let i=0;i< length; i++){
 myData[i]= parseInt(myData[i]);
-//  console.log(myData.length)
      }
   };
 
   
-  // console.log(myData)
   const [product, setproduct] = useState({ products: [...data] });
-  // const [quantity, setquantity] = useState(1);
   const [price, setprice] = useState(0);
   const [cart, setcart] = useState(myData);
 
@@ -71,12 +68,6 @@ myData[i]= parseInt(myData[i]);
     setproduct((prevState) => ({
       products: prevState.products.filter((product) => product.id !== id),
     }));
-   
-//   const updatedCart = cart.filter((cart) => cart.id === 1);
-//   setcart(updatedCart);
-// console.log(cart)
-//   localStorage.setItem("products", JSON.stringify(product));
-//   localStorage.setItem("cart", JSON.stringify(cart));
 
 let count = -1
   for(let x in cart){
@@ -87,7 +78,6 @@ let count = -1
       cart.splice(count, 1);
       localStorage.setItem("cart",JSON.stringify(cart))
      
-
     }
   }
   };
