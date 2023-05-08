@@ -5,12 +5,22 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Cart() {
   const data = useContext(ProductsData);
-  // JSON.parse(localStorage.getItem('cart'));
-  const myData = [1,2,3,4];
+  const myData = JSON.parse(localStorage.getItem('cart'));
+
+
+  const handledata = (myData) => {
+    const length = myData.length;
+    for (let i = 0; i < length; i++) {
+      myData[i] = parseInt(myData[i]);
+
+    }
+  };
+
+
 
   const [product, setproduct] = useState({ products: [...data] });
-  // const [quantity, setquantity] = useState(1);
   const [price, setprice] = useState(0);
+  const [cart, setcart] = useState(myData);
 
   useEffect(() => {
     const sumprice = product.products.reduce((accumulator, current) => {
@@ -60,12 +70,24 @@ export default function Cart() {
     setproduct((prevState) => ({
       products: prevState.products.filter((product) => product.id !== id),
     }));
-    localStorage.setItem("products", JSON.stringify(product))
+
+    let count = -1
+    for (let x in cart) {
+      count += 1
+
+      if (cart[x] == id) {
+        console.log(cart[x])
+        cart.splice(count, 1);
+        localStorage.setItem("cart", JSON.stringify(cart))
+
+
+      }
+    }
   };
 
-  let user = sessionStorage.getItem('User') || false;
+  let user = sessionStorage.getItem('User') || true;
   return (
-    <div class="h-screen bg-gray-100 pt-20 overflow-y-auto ">
+    <div class="h-screen bg-gray-100 pt-20 overflow-y-auto" onLoad={handledata(myData)}>
       <h1 class="mb-10 text-center text-2xl font-bold">Cart Items</h1>
       <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
         <div class="rounded-lg md:w-2/3 " onLoad={() => { handleprice(); handlelocalstorage(myData) }}>
@@ -117,8 +139,8 @@ export default function Cart() {
             </div>
           </div>
           {user ?
-            (<Link to="/payment"><button class="mt-6 w-full rounded-md bg-teal-600 py-1.5 font-medium text-blue-50 hover:bg-teal-800">Check out</button></Link>)
-            : (<Link to="/signIn"><button class="mt-6 w-full rounded-md bg-teal-600 py-1.5 font-medium text-blue-50 hover:bg-teal-800">Check out</button></Link>)
+            (<button class="mt-6 w-full rounded-md bg-teal-600 py-1.5 font-medium text-blue-50 hover:bg-teal-800"> <Link to="/payment"> Check out </Link></button>)
+            : (<button class="mt-6 w-full rounded-md bg-teal-600 py-1.5 font-medium text-blue-50 hover:bg-teal-800"> <Link to="/signIn"> Check out </Link></button>)
           }
         </div>
       </div>
