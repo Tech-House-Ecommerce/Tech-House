@@ -4,7 +4,7 @@ import '../../CSS/Products.css'
 import { Link } from 'react-router-dom';
 
 export default function Product() {
-  var cartulary = []
+  let cartulary = []
   let productCount2 = []
 
   if (localStorage.cart != null) {
@@ -33,7 +33,7 @@ export default function Product() {
     event.currentTarget.className = "cursor-pointer block h-8 w-8 rounded  bg-teal-600  text-center leading-8 text-gray-900"
 
     let productPagnationArray = []
-    for (let i = (event.currentTarget.name) - 9; i < event.currentTarget.name; i++) {
+    for (let i = (event.currentTarget.name) - 8; i < event.currentTarget.name; i++) {
       if (data[i] == null) {
         break;
       }
@@ -54,7 +54,7 @@ export default function Product() {
 
   useEffect(() => {
     let productPagnationArray = []
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 8; i++) {
       if (data[i] == null) {
         break;
       }
@@ -296,8 +296,7 @@ export default function Product() {
           <ol className="flex justify-center gap-1 text-xs font-medium">
             <li>
               <a
-                name={9}
-                onClick={pagenationHandle}
+               
                 className="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
               >
                 <span className="sr-only">Prev Page</span>
@@ -318,7 +317,7 @@ export default function Product() {
             <li>
               <a
                 className="cursor-pointer block h-8 w-8 rounded border-teal-600 bg-teal-600 text-center leading-8 text-gray-900"
-                name={9}
+                name={8}
                 onClick={pagenationHandle}
               >
                 1
@@ -328,7 +327,7 @@ export default function Product() {
             <li>
               <a
                 className="cursor-pointer block h-8 w-8 rounded border-teal-600 bg-white-600 text-center leading-8 text-gray-900"
-                name={18}
+                name={16}
                 onClick={pagenationHandle}
               >
                 2
@@ -338,7 +337,7 @@ export default function Product() {
             <li>
               <a
                 className="cursor-pointer block h-8 w-8 rounded border-teal-600 bg-white-600 text-center leading-8 text-gray-900"
-                name={27}
+                name={24}
                 onClick={pagenationHandle}
               >
                 3
@@ -348,7 +347,7 @@ export default function Product() {
             <li>
               <a
                 className="cursor-pointer block h-8 w-8 rounded border-teal-600  bg-white-600  text-center leading-8 text-gray-900"
-                name={36}
+                name={32}
                 onClick={pagenationHandle}
               >
                 4
@@ -357,8 +356,7 @@ export default function Product() {
 
             <li>
               <a
-                name={36}
-                onClick={pagenationHandle}
+               
                 className="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
               >
                 <span className="sr-only">Next Page</span>
