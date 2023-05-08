@@ -18,19 +18,19 @@ export default function Footer() {
       <nav aria-label="Footer Nav" class="mt-12">
         <ul class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
           <li>
-            <Link to="/aboutUs" classnName='text-gray-500 transition hover:text-gray-500/75'>About Us</Link>
+            <Link to="/aboutUs" classnName='text-gray-500 transition  hover:text-teal-600'>About Us</Link>
           </li>
 
           <li>
-            <Link to="/contactUs" classnName='text-gray-500 transition hover:text-gray-500/75'>Contact Us</Link>
+            <Link to="/contactUs" classnName='text-gray-500 transition  hover:text-teal-600'>Contact Us</Link>
           </li>
 
           <li>
-            <Link to="/cart" classnName='text-gray-500 transition hover:text-gray-500/75'>Cart</Link>
+            <Link to="/cart" classnName='text-gray-500 transition  hover:text-teal-600'>Cart</Link>
           </li>
 
           <li>
-            <Link to="/products" classnName='text-gray-500 transition hover:text-gray-500/75'>Products</Link>
+            <Link to="/products" classnName='text-gray-500 transition  hover:text-teal-600'>Products</Link>
           </li>
         </ul>
       </nav>
@@ -41,7 +41,7 @@ export default function Footer() {
             href="/"
             rel="noreferrer"
             target="_blank"
-            class="text-gray-700 transition hover:text-gray-700/75"
+            class="text-gray-700 transition  hover:text-teal-600"
           >
             <span class="sr-only">Facebook</span>
             <svg
@@ -64,7 +64,7 @@ export default function Footer() {
             href="/"
             rel="noreferrer"
             target="_blank"
-            class="text-gray-700 transition hover:text-gray-700/75"
+            class="text-gray-700 transition  hover:text-teal-600"
           >
             <span class="sr-only">Instagram</span>
             <svg
@@ -87,7 +87,7 @@ export default function Footer() {
             href="/"
             rel="noreferrer"
             target="_blank"
-            class="text-gray-700 transition hover:text-gray-700/75"
+            class="text-gray-700 transition  hover:text-teal-600"
           >
             <span class="sr-only">Twitter</span>
             <svg
@@ -108,7 +108,7 @@ export default function Footer() {
             href="/"
             rel="noreferrer"
             target="_blank"
-            class="text-gray-700 transition hover:text-gray-700/75"
+            class="text-gray-700 transition  hover:text-teal-600"
           >
             <span class="sr-only">GitHub</span>
             <svg
@@ -131,7 +131,7 @@ export default function Footer() {
             href="/"
             rel="noreferrer"
             target="_blank"
-            class="text-gray-700 transition hover:text-gray-700/75"
+            class="text-gray-700 transition  hover:text-teal-600"
           >
             <span class="sr-only">Dribbble</span>
             <svg
