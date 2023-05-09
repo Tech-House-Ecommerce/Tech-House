@@ -41,7 +41,7 @@ export default function SignInWithGoogle({massage}) {
                 cart: []
             };
             setUsers([...users, user]);
-            sessionStorage.setItem('User', JSON.stringify(isUser));
+            sessionStorage.setItem('User', JSON.stringify(user));
             localStorage.setItem('Users', JSON.stringify([...users, user]));
         }
         navigate('/');

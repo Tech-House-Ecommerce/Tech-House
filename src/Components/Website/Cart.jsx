@@ -1,21 +1,21 @@
 import React from 'react'
 import { useContext, useState, useEffect } from 'react'
 import { ProductsData } from './../../App';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
   const data = useContext(ProductsData);
-  const myData =   JSON.parse(localStorage.getItem('cart'));
+  const myData = JSON.parse(localStorage.getItem('cart')) || [];
 
 
   const handledata = (myData) => {
-    const length=myData.length;
-     for(let i=0;i< length; i++){
-myData[i]= parseInt(myData[i]);
-     }
+    const length = myData.length;
+    for (let i = 0; i < length; i++) {
+      myData[i] = parseInt(myData[i]);
+    }
   };
 
-  
+
   const [product, setproduct] = useState({ products: [...data] });
   const [price, setprice] = useState(0);
   const [cart, setcart] = useState(myData);
@@ -24,7 +24,8 @@ myData[i]= parseInt(myData[i]);
     const sumprice = product.products.reduce((accumulator, current) => {
       if (current.price >= 0) {
         return accumulator + current.price * current.quantity;
-      } localStorage.setItem("products", JSON.stringify(product))
+      } 
+      localStorage.setItem("products", JSON.stringify(product))
       return accumulator;
     }, 0);
     localStorage.setItem("price", JSON.stringify(sumprice))
@@ -69,17 +70,17 @@ myData[i]= parseInt(myData[i]);
       products: prevState.products.filter((product) => product.id !== id),
     }));
 
-let count = -1
-  for(let x in cart){
-    count+=1
-   
-    if( cart[x] == id){
-      console.log(cart[x])
-      cart.splice(count, 1);
-      localStorage.setItem("cart",JSON.stringify(cart))
-     
+    let count = -1
+    for (let x in cart) {
+      count += 1
+
+      if (cart[x] == id) {
+        console.log(cart[x])
+        cart.splice(count, 1);
+        localStorage.setItem("cart", JSON.stringify(cart))
+
+      }
     }
-  }
   };
 
   let user = sessionStorage.getItem('User') || true;
