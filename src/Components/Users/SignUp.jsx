@@ -5,6 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import SignGoogle from './SignInWithGoogle';
 import Facebook from './SigInWithFacebook';
 
+if (localStorage.Users === undefined) {
+  localStorage.setItem('Users', JSON.stringify([]))
+}
+
 export default function SignUp() {
 
   const navigate = useNavigate();
@@ -17,7 +21,7 @@ export default function SignUp() {
     cart: []
   })
 
-  const [users, setUsers] = useState(localStorage.Users ? JSON.parse(localStorage.Users) : []);
+  const [users, setUsers] = useState(JSON.parse(localStorage.Users));
 
   const [checkInput, setCheckInput] = useState({
     name: false,
