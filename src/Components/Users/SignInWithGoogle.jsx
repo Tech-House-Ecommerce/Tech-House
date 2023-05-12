@@ -2,7 +2,7 @@ import { gapi } from 'gapi-script'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function SignInWithGoogle({massage}) {
+export default function SignInWithGoogle({massage, path, updateIsLog}) {
 
     const navigate = useNavigate();
     const [users, setUsers] = useState(JSON.parse(localStorage.Users) || []);
@@ -44,7 +44,8 @@ export default function SignInWithGoogle({massage}) {
             sessionStorage.setItem('User', JSON.stringify(user));
             localStorage.setItem('Users', JSON.stringify([...users, user]));
         }
-        navigate('/');
+        updateIsLog(true);
+        navigate(path);
     }
 
     const startApp = () => {
