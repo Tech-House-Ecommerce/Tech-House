@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../../CSS/Users.css'
-import Logo from '../../Images/TachHouse-logo.png'
+import Logo from '../../Images/Techhouse-logo.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SignGoogle from './SignInWithGoogle'
 import Facebook from './SigInWithFacebook';

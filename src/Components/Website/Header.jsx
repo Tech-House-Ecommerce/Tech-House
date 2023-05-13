@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import TechHouseLogo from './../../Images/Techhouse-logo.png'
 export default function Header({ isLog, updateIsLog }) {
 
    const [nav, setNav] = useState(false);
@@ -21,7 +21,7 @@ export default function Header({ isLog, updateIsLog }) {
                   <span class="sr-only">Home</span>
 
                   <div class="flex-shrink-0 justify-center">
-                     <img class=" w-40	" src="https://cdn.discordapp.com/attachments/1103605500412690432/1104387146317582436/tachhouse-high-logopng.png" alt="Workflow logo" />
+                     <img class=" w-40	" src={TechHouseLogo} alt="Workflow logo" />
                   </div>
 
                </a>
