@@ -57,7 +57,7 @@ export default function SigInWithFacebook({ massage, path, updateIsLog }) {
     return (
         <>
             <LoginSocialFacebook
-                appId="814439923353822"
+                appId= {process.env.REACT_APP_Facebook_Client_id}
                 onResolve= {handleSignIn}
                 onReject= {handleError}>
                 <button
