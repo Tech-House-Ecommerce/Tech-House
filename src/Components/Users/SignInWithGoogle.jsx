@@ -52,7 +52,7 @@ export default function SignInWithGoogle({massage, path, updateIsLog}) {
         window.gapi.load("auth2", function () {
             window.gapi.auth2
                 .init({
-                    client_id: "450119629221-1opkncnrqv5jcb8iqsfuctngbjbmkvfl.apps.googleusercontent.com",
+                    client_id: process.env.REACT_APP_Google_Client_id,
                 })
                 .then((auth2) => {
                     const customBtn = document.getElementById("customBtn");
